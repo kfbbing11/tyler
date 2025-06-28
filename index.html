@@ -261,45 +261,45 @@
     });
 
   // Kyle - move with touch/phone
-    // canvas.addEventListener("touchstart", handleStart, false);
-    // canvas.addEventListener("touchmove", handleMove, false);
-    // canvas.addEventListener("touchend", handleEnd, false);
-    // canvas.addEventListener("touchcancel", handleCancel, false);
+    canvas.addEventListener("touchstart", handleStart, false);
+    canvas.addEventListener("touchmove", handleMove, false);
+    canvas.addEventListener("touchend", handleEnd, false);
+    canvas.addEventListener("touchcancel", handleCancel, false);
     
-    // let isDragging = false;
-    // let startX, startY;
+    let isDragging = false;
+    let startX, startY;
     
-    // function handleStart(event) {
-    //   event.preventDefault();
-    //   isDragging = true;
-    //   const touch = event.touches[0];
-    //   const rect = canvas.getBoundingClientRect();
-    //   startX = touch.clientX - rect.left;
-    //   startY = touch.clientY - rect.top;
-    // }
-    // function handleMove(event) {
-    //   if (!isDragging) return;
+    function handleStart(event) {
+      event.preventDefault();
+      isDragging = true;
+      const touch = event.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      startX = touch.clientX - rect.left;
+      startY = touch.clientY - rect.top;
+    }
+    function handleMove(event) {
+      if (!isDragging) return;
     
-    //   event.preventDefault(); // Prevent default browser behavior (e.g., scrolling)
+      event.preventDefault(); // Prevent default browser behavior (e.g., scrolling)
     
-    //   const touch = event.touches[0];
-    //   const rect = canvas.getBoundingClientRect();
-    //   const currentX = touch.clientX - rect.left;
-    //   const currentY = touch.clientY - rect.top;
+      const touch = event.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      const currentX = touch.clientX - rect.left;
+      const currentY = touch.clientY - rect.top;
     
-    //   const deltaX = currentX - startX;
-    //   const deltaY = currentY - startY;
+      const deltaX = currentX - startX;
+      const deltaY = currentY - startY;
     
-    //   whaleX += deltaX;
+      whaleX += deltaX;
     
-    //   startX = currentX;
-    //   startY = currentY;
+      startX = currentX;
+      startY = currentY;
       
-    //   whaleX = Math.max(0, Math.min(whaleX, 320));
-    // }
-    // function handleEnd(event) {
-    //   isDragging = false;
-    // }
+      whaleX = Math.max(0, Math.min(whaleX, 320));
+    }
+    function handleEnd(event) {
+      isDragging = false;
+    }
 
     
 
